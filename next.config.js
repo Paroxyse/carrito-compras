@@ -2,6 +2,9 @@
 const nextConfig = {}
 
 module.exports = {
+    env: {
+      environment: 'development',
+    },
     images: {
       remotePatterns: [
         {
