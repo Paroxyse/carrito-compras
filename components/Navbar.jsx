@@ -1,7 +1,27 @@
+"use client"
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 import styles from '../styles/Navbar.module.css';
-
+import { Provider} from 'react-redux';
+import store from '../redux/store';
 const Navbar = () => {
+return (
+<Provider store={store}>
+<WithProvider />
+</Provider>
+);
+};
+const WithProvider = () => {
+
+  // Selecting cart from global state
+  const cart = useSelector((state) => state.cart);
+
+  // Getting the count of items
+  const getItemsCount = () => {
+    return cart.reduce((accumulator, item) => accumulator + item.quantity, 0);
+  };
+
+  
   return (
     <nav className={styles.navbar}>
       <h6 className={styles.logo}>GamesKart</h6>
@@ -13,11 +33,12 @@ const Navbar = () => {
           <Link href="/shop">Shop</Link>
         </li>
         <li className={styles.navlink}>
-          <Link href="/cart">Cart</Link>
+          <Link href="/cart">
+            <p>Cart ({getItemsCount()})</p>
+          </Link>
         </li>
       </ul>
     </nav>
-  );
+  );;
 };
-
 export default Navbar;

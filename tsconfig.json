@@ -20,14 +20,17 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "app/api/products/route.js", "app/api/products/[category]/route.js"  ],
+    "**/*.tsx",
+    "app/api/products/route.js",
+    "app/api/products/[category]/route.js"
+  ],
   "exclude": [
     "node_modules"
   ]
