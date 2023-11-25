@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
 import styles from '../../styles/ShopPage.module.css';
 
-const ShopPage = () => {
+const ShopPage = (category) => {
   const [products, setProducts] = useState([{},{}]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await fetch('/api/products');
+        console.log(category);
+        const result = await fetch(`/api/products/`);
         const res = await result.json();
         console.log('Fetched products:', res);
         setProducts(res);
