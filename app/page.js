@@ -3,6 +3,7 @@ import CategoryCard from '../components/CategoryCard';
 
 const HomePage = () => {
   return (
+    
     <main className={styles.container}>
       <div className={styles.small}>
         <CategoryCard image="https://imgur.com/uKQqsuA.png" name="Xbox" />
